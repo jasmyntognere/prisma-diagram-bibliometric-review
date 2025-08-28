@@ -1,0 +1,22 @@
+library(DiagrammeR)
+library(DiagrammeRsvg)
+library(rsvg)
+
+grViz("
+digraph prisma {
+
+  graph [layout = dot, rankdir = TB]
+
+  node [shape = box, style = filled, fillcolor = white, fontname = Times, fontsize = 30]
+
+  # Nodos principais
+  A [label = 'Palavras-chave em Português\\n\\n Milho doce = apenas 46 documentos (todos mantidos)\\n Milho doce e biofertilizante ou bioestimulante = 0 documentos encontrados\\n\\n Total: 46 documentos.']
+  B [label = 'Palavras-chave em Inglês\\n\\n Sweet corn: 3284 documentos\\n Sweet corn and biofertilizer or biofertilization = 18 documentos\\n Sweet corn and biofertilizer or biofertilization or bioproducts = 18 documentos\\n Sweet corn and biofertilizer or biofertilization or bioproducts or biological input = 18 documentos ']
+  C [label = 'Triagem\\n\\n Após refinamento e remoção de duplicados:\\n\\ • 46 documentos em Português\\n • 18 documentos em inglês']
+  D [label = 'Elegibilidade\\n\\n 82 artigos avaliados (português + inglês)']
+  
+
+  # Setas
+  A -> B -> C -> D
+}
+")
